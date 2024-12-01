@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}User{% endblock %}
+
+{% block content %}
+    <!-- flash message -->
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for msg in messages %}
+        <p class="text-white bg-success text-center">{{msg}}</p>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}    
+
+<!-- Welcome message -->    
+<p class="h1">Welcome, {{user}}!</p>    
+
+<!-- Search a song --> 
+<a href='/search' class="btn btn-lg btn-dark">Go back</a> 
+
+
+<!-- Choose a playlist -->    
+<p class="h1 display-5 text-center">Choose a playlist to generate music recommendations!</p>
+
+<!-- Playlist radio names and button -->    
+<form align="center" action="/user" method="post">
+    <table align="center" border="1" style="background-color: black">
+        <tr align="center" style="background-color:black">
+            <th width="600" style="color: white;">Playlists</th>
+        </tr>
+
+        {% for name, id in playlists.items() %} 
+        <tr align="center" style="background-color:lightgray">
+            <th style="color: black;"><input type="radio" name="playlist" value={{id}}>{{name}}</th>
+        </tr>
+        {% endfor %}
+    </table>
+<p></p>
+<input class="btn-lg btn-dark" type="submit" value="Next">
+</form>
+
+{% endblock %}

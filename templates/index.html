@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+
+<!-- flash message -->
+{% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+                <p class="text-white bg-success text-center">{{msg}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+<!-- title -->
+<h1 class="h1 text-center">Music Recommendation Generator</h1>
+
+<!-- button -->
+<div class="row justify-content-center">
+    <div class='btn-group'>
+        <a href='/search' class="btn btn-lg btn-dark">By Search</a>
+        <a href='/login' class="btn btn-lg btn-dark">Login with Spotify</a>
+    </div>
+</div>
+
+{% endblock %}

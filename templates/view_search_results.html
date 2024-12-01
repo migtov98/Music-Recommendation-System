@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Search Results{% endblock %}
+
+{% block content %}    
+
+<!-- Display general information and back button -->
+<div class="justify-content-center">
+    <p class="h1">Results for: {{artist}}</p> 
+    <a href='/search' class="btn btn-lg btn-dark">Go back</a> 
+    <a href='/view_search_recommendations' class="btn btn-lg btn-dark">Generate music recommendations based on this artist!</a>    
+    <p></p>     
+</div>   
+
+<!-- Displays track info contained in track dictionary -->
+
+<!-- Checks if type is dictionary -->
+{% if tracks is mapping %} 
+
+    <table align="center" border="1" style="background-color: black">
+        <tr align="center" style="background-color:black">
+            <th width="600" style="color: white;">Artist Tracks</th>
+        </tr>
+
+        {% for id, track_info in tracks.items() %}             
+        <tr align="center" style="background-color:lightgray">
+            <th style="color: black">{{track_info[0]}}</th>            
+        </tr>
+        {% endfor %}
+    </table>
+    
+<!-- If its not a dictionary display the return string -->
+{% else %}
+    <p class="h6">{{tracks}}</p>
+{% endif %}
+
+{% endblock %}

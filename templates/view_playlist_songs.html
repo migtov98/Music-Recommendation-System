@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Playlist{% endblock %}
+
+{% block content %}    
+<div class="justify-content-center">
+    <p class="h1">Selected Playlist: {{playlist_name}}</p> 
+    <a href='/user' class="btn btn-lg btn-dark">Go back</a>
+    <a href='/view_playlist_recommendations' class="btn btn-lg btn-dark">Get song recommendations for this playlist!</a>    
+    <p></p>     
+</div>   
+
+<!-- Display track info contained in track dictionary -->
+<!-- Check if type is dictionary -->
+{% if tracks is mapping %} 
+
+    <table align="center" border="1" style="background-color: black">
+        <tr align="center" style="background-color:black">
+            <th width="300" style="color: white;">Artist</th>
+            <th width="600" style="color: white;">Track</th>
+        </tr>
+
+        {% for id, track_info in tracks.items() %}             
+        <tr align="center" style="background-color:lightgray">
+            <th style="color: black">{{track_info[0]}}</th>    
+            <th style="color: black">{{track_info[1]}}</th>            
+        </tr>
+        {% endfor %}
+    </table>
+
+<!-- If its not a dictionary display the return string -->
+{% else %}
+    <p class="h6">{{tracks}}</p>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Search{% endblock %}
+
+{% block content %}
+<!-- Search a song -->  
+<div class="row justify-content-center">
+  <form action="#" method="post">
+    <p class="h1 text-center">Enter an artist</p>
+    <p class="h3"><input type="text" name="artist" artist="artist" /></p>    
+    <div class="row justify-content-center">
+    <p><input class="btn-lg btn-dark" type="submit" value="Search Artist"></p>
+    </div>
+  </form>
+</div>
+
+<p class="font-weight-bold text-center">OR</p>
+
+<!-- Choose a playlist -->    
+
+<p class="text-center">Login with Spotify to generate music based off your own playlists!</p>
+
+<!-- Login button -->    
+<div class="row justify-content-center">
+    <div class='btn-group'>        
+        <a href='/login' class="btn btn-lg btn-dark ">Login with Spotify</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Search Recommendations{% endblock %}
+
+{% block content %}   
+
+<div class="justify-content-center">
+    <p class="h1">Generated search recommendation:</p> 
+    <a href='/view_search_results' class="btn btn-lg btn-dark">View artist songs</a>   
+    <a href='/search' class="btn btn-lg btn-dark">Search a different artist</a>      
+    <p align="center" class="h3">Recommended Music</p>     
+</div>  
+
+<table align="center" border="1" style="background-color: black">
+    <tr align="center" style="background-color:black">
+        <th width="300" style="color: white;">Artist</th>
+        <th width="600" style="color: white;">Track</th>
+        <th width="100" style="color: white;">Year</th>
+        <th width="100" style="color: white;">Similarity</th>
+    </tr>
+
+    {% for id, track_info in tracks.items() %}             
+    <tr align="center" style="background-color:lightgray">
+        <th style="color: black">{{track_info[0]}}</th>            
+        <th style="color: black">{{track_info[1]}}</th>            
+        <th style="color: black">{{track_info[2]}}</th>            
+        <th style="color: black">{{track_info[3]}}</th>            
+    </tr>
+    {% endfor %}
+</table>
+ 
+{% endblock %}
